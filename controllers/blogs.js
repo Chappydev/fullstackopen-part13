@@ -8,15 +8,11 @@ const blogFinder = async (req, res, next) => {
 };
 
 router.get("/", async (req, res) => {
-  if (req.blog) {
-    res.json(req.blogs);
-  } else {
-    res.status(404).end();
-  }
+  const blogs = await Blog.findAll();
+  res.json(blogs);
 });
 
 router.post("/", async (req, res) => {
-  console.log(req.body);
   try {
     const blog = await Blog.build(req.body);
     blog.save();
@@ -26,7 +22,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", blogFinder, async (req, res) => {
   if (req.blog) {
     await req.blog.destroy();
   }
