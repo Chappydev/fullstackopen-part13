@@ -13,13 +13,9 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  try {
-    const blog = await Blog.build(req.body);
-    blog.save();
-    return res.json(blog);
-  } catch (error) {
-    return res.status(400).json({ error });
-  }
+  const blog = await Blog.build(req.body);
+  await blog.save();
+  return res.json(blog);
 });
 
 router.delete("/:id", blogFinder, async (req, res) => {

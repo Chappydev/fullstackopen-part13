@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Chappydev/fullstackopen-part13/issues"
   },
-  "homepage": "https://github.com/Chappydev/fullstackopen-part13#readme"
+  "homepage": "https://github.com/Chappydev/fullstackopen-part13#readme",
+  "dependencies": {
+    "express-async-errors": "^3.1.1"
+  }
 }
