@@ -10,6 +10,7 @@ app.use(express.json());
 
 app.use("/api/blogs", blogsRouter);
 
+app.use(middleware.blogFinder);
 app.use(middleware.errorHandler);
 
 const start = async () => {
