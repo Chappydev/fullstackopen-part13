@@ -8,7 +8,6 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  console.log("req.decodedToken: ", req.decodedToken);
   if (req.decodedToken === null) {
     return res.status(401).json({ error: "token missing" });
   }

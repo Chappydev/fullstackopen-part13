@@ -19,7 +19,6 @@ const blogFinder = async (req, res, next) => {
 
 const tokenExtractor = (req, res, next) => {
   const authorization = req.get("authorization");
-  console.log("authorization: ", authorization);
   if (authorization?.toLowerCase().startsWith("bearer ")) {
     try {
       req.decodedToken = jwt.verify(
