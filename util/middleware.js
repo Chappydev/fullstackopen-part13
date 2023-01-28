@@ -3,7 +3,7 @@ const errorHandler = (error, req, res, next) => {
   console.error("Here is the error", error);
 
   if (error.name === "SequelizeValidationError") {
-    return res.status(400).send({ error: "malformatted data" });
+    return res.status(400).send({ error: error.message });
   }
 
   next(error);
