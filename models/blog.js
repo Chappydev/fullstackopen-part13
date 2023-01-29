@@ -25,6 +25,12 @@ Blog.init(
       type: DataTypes.INTEGER,
       defaultValue: 0,
     },
+    yearWritten: {
+      type: DataTypes.INTEGER,
+      validate: {
+        min: 1991,
+      },
+    },
   },
   {
     sequelize,
